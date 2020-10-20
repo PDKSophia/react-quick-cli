@@ -12,30 +12,6 @@ const devConfig = {
     libraryTarget: 'umd', // 采用通用模块定义
     libraryExport: 'default', // 兼容 ES6 的模块系统、CommonJS 和 AMD 模块规范
   },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        include: /node_modules/,
-        loader: 'style-loader!css-loader',
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[name]__[local]--[hash:base64:5]',
-              },
-            },
-          },
-        ],
-      },
-    ],
-  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'main.min.css', // 提取后的css的文件名
@@ -45,7 +21,7 @@ const devConfig = {
     contentBase: path.join(__dirname, '../example/src/'),
     compress: true,
     host: '127.0.0.1', // webpack-dev-server启动时要指定ip，不能直接通过localhost启动，不指定会报错
-    port: 8001, // 启动端口为 8001 的服务
+    port: 7001, // 启动端口为 7001 的服务
     open: true, // 自动打开浏览器
   },
 }
